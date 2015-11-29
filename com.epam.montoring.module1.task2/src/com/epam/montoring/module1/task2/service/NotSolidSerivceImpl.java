@@ -11,7 +11,6 @@ import com.epam.montoring.module1.task2.model.XmlDocument;
  * 
  * S -Single responsibility principle: class is responsible for creation and 
  * filling and printing of document
- * O - Open/closed principle:
  */
 public class NotSolidSerivceImpl extends DocumentServiceImpl {
 	
@@ -25,11 +24,6 @@ public class NotSolidSerivceImpl extends DocumentServiceImpl {
 	 * 
 	 * it can only work with child class
 	 * 
-	 *  O - Open/closed principle
-	 *	“software entities … should be open for extension, but closed 
-	 *	for modification.”
-	 *
-	 *	method is modified in child class by overriding
 	 */
 	@Override
 	public void print(Document document) {
@@ -40,7 +34,13 @@ public class NotSolidSerivceImpl extends DocumentServiceImpl {
 	
 	@Override
 	public void doPrintXml(XmlDocument document) {
-		// TODO Auto-generated method stub
+//		 *  O - Open/closed principle
+//		 *	“software entities … should be open for extension, but closed 
+//		 *	for modification.”
+//		 *
+//		 * it needs to modify entity to change printing mechanism
+		
+		document.print();
 		
 	}
 
