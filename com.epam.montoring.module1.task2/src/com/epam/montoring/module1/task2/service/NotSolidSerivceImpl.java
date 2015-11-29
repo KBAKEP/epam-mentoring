@@ -39,7 +39,12 @@ public class NotSolidSerivceImpl extends DocumentServiceImpl {
 //		 *	for modification.”
 //		 *
 //		 * it needs to modify entity to change printing mechanism
-		
+	    
+//	         * D - Dependency inversion principle
+//	         * one should “Depend upon Abstractions. Do not depend upon concretions."
+//	         * 
+//	         * using concrete class, not an interface/abstraction
+	        
 		document.print();
 		
 	}
