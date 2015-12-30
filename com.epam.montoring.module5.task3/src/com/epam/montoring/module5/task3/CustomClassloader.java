@@ -53,7 +53,7 @@ public class CustomClassloader extends ClassLoader {
 
             for (File file : list) {
                 
-                String classShortName = className.substring(className.lastIndexOf('.') + 1);;
+                String classShortName = className.substring(className.lastIndexOf('.') + 1)  + ".class";
                 
                 if (file.getName().equals(classShortName)) {
 

@@ -9,7 +9,8 @@ public class Runner {
 
     public static void main(String[] args) {
 
-        String classPath;
+//        String classPath = "./external/";
+        String classPath = null;
 
         System.out.println("Enter path here : ");
 
@@ -26,6 +27,8 @@ public class Runner {
             Class clazz = classloader.loadClass("com.epam.montoring.module5.task3.Semaphore");
             Method method = clazz.getMethod("lever", null);
             method.invoke(clazz.newInstance());
+            
+            System.out.println("SUCCESS");
 
         } catch (Exception e) {
             printFailAndExit(e);
