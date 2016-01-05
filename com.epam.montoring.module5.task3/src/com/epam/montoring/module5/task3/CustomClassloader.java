@@ -8,9 +8,14 @@ import java.util.Map;
 
 public class CustomClassloader extends ClassLoader {
 
-    private Map<String, Class<?>>    classes = new HashMap<String, Class<?>>();
+    private Map<String, Class<?>> classes             = new HashMap<String, Class<?>>();
 
-    private String classpath;
+    private String                classpath;
+
+    public CustomClassloader() {
+
+        this(CustomClassloader.class.getClassLoader(), "external/old");
+    }
 
     public CustomClassloader(String classpath) {
 
@@ -36,25 +41,28 @@ public class CustomClassloader extends ClassLoader {
         if (result != null) {
             return result;
         }
-
+        // maybe unnecessary
+        // to make CustomClassloader be able to work with system classes
         try {
             return findSystemClass(className);
         } catch (Exception e) {
-        }
 
+        }
+        
         try {
             File root = new File(classpath);
             File[] list = root.listFiles();
 
             if (list == null)
                 throw new FileNotFoundException();
-            
+
             byte[] bytesFile = null;
 
             for (File file : list) {
-                
-                String classShortName = className.substring(className.lastIndexOf('.') + 1)  + ".class";
-                
+
+                String classShortName = className.substring(className.lastIndexOf('.') + 1)
+                        + ".class";
+
                 if (file.getName().equals(classShortName)) {
 
                     bytesFile = new byte[(int) file.length()];
@@ -68,19 +76,30 @@ public class CustomClassloader extends ClassLoader {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    
+
                     break;
                 }
             }
 
-            if (bytesFile == null) throw new IllegalStateException();
-            
+            if (bytesFile == null)
+                throw new IllegalStateException();
+
             result = defineClass(className, bytesFile, 0, bytesFile.length, null);
             classes.put(className, result);
             return result;
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public String getClasspath() {
+
+        return classpath;
+    }
+
+    public void setClasspath(String classpath) {
+
+        this.classpath = classpath;
     }
 
 }

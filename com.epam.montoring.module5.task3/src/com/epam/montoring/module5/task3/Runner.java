@@ -7,9 +7,22 @@ import java.util.Scanner;
 
 public class Runner {
 
+    public static final String    SEMAPHORE_CLASSNAME = "com.epam.montoring.module5.task3.Semaphore";
+    
     public static void main(String[] args) {
 
-//        String classPath = "./external/";
+        reloadClass();
+    }
+
+    private static void printFailAndExit() {
+
+        printFailAndExit(null);
+
+    }
+
+    private static void loadClass() {
+
+        // String classPath = "./external/";
         String classPath = null;
 
         System.out.println("Enter path here : ");
@@ -24,10 +37,10 @@ public class Runner {
 
         CustomClassloader classloader = new CustomClassloader(classPath);
         try {
-            Class clazz = classloader.loadClass("com.epam.montoring.module5.task3.Semaphore");
+            Class clazz = classloader.loadClass(SEMAPHORE_CLASSNAME);
             Method method = clazz.getMethod("lever", null);
             method.invoke(clazz.newInstance());
-            
+
             System.out.println("SUCCESS");
 
         } catch (Exception e) {
@@ -36,10 +49,36 @@ public class Runner {
 
     }
 
-    private static void printFailAndExit() {
+    private static void reloadClass() {
 
-        printFailAndExit(null);
+        Scanner scanIn = new Scanner(System.in);
+        
+        do {
+            String classPath = null;
 
+            System.out.println("Enter path here : ");
+           
+            classPath = scanIn.nextLine();
+
+            if (classPath == null || classPath.equals("")) {
+                continue;
+            }
+
+            CustomClassloader classloader = new CustomClassloader(classPath);
+            
+            try {
+                Class clazz = classloader.loadClass(SEMAPHORE_CLASSNAME);
+                Method method = clazz.getMethod("lever", null);
+                method.invoke(clazz.newInstance());
+
+                System.out.println("SUCCESS");
+
+            } catch (Exception e) {
+                scanIn.close();
+                printFailAndExit(e);
+            }
+        } while (true);
+        
     }
 
     private static void printFailAndExit(Exception e) {
@@ -48,5 +87,4 @@ public class Runner {
         e.printStackTrace();
         System.exit(1);
     }
-
 }
