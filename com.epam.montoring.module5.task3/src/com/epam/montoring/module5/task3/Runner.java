@@ -1,8 +1,6 @@
 package com.epam.montoring.module5.task3;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.net.MalformedURLException;
 import java.util.Scanner;
 
 public class Runner {
