@@ -49,14 +49,14 @@ public class Runner {
 
     private static void reloadClass() {
 
-        Scanner scanIn = new Scanner(System.in);
+//        Scanner scanIn = new Scanner(System.in);
         
         do {
-            String classPath = null;
+            String classPath = "external/new";
 
-            System.out.println("Enter path here : ");
+//            System.out.println("Enter path here : ");
            
-            classPath = scanIn.nextLine();
+//            classPath = scanIn.nextLine();
 
             if (classPath == null || classPath.equals("")) {
                 continue;
@@ -72,7 +72,7 @@ public class Runner {
                 System.out.println("SUCCESS");
 
             } catch (Exception e) {
-                scanIn.close();
+//                scanIn.close();
                 printFailAndExit(e);
             }
         } while (true);
