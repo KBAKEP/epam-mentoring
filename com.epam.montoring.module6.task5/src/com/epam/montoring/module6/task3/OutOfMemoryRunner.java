@@ -36,30 +36,9 @@ public class OutOfMemoryRunner {
     private static void outOfPermGen() throws Exception {
 
         for (int i = 0; i < 100_000_000; i++) {
-            generate("com.epam.mentoring.Generated" + i);
+            
+            ClassPool pool = ClassPool.getDefault();
+            pool.makeClass("com.epam.mentoring.Generated" + i).toClass();
         }
-    }
-
-    public static Class generate(String name) throws Exception {
-
-        ClassPool pool = ClassPool.getDefault();
-        return pool.makeClass(name).toClass();
-    }
-
-    static class NewClassloader extends ClassLoader {
-
-        private ClassLoader previous;
-
-        public NewClassloader(ClassLoader previous) {
-
-            super(NewClassloader.class.getClassLoader());
-            this.previous = previous;
-        }
-
-        public NewClassloader() {
-
-            super(NewClassloader.class.getClassLoader());
-        }
-
     }
 }
