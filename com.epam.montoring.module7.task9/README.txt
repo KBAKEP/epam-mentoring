@@ -1,0 +1,6 @@
+-Xmx18m -Xms6m -Xmn2m -XX:PermSize=20m -XX:MaxPermSize=30m -XX:+UseSerialGC
+-Xmx12m -Xms3m -Xmn1m -XX:PermSize=20m -XX:MaxPermSize=20m -XX:+UseParallelGC
+-Xmx18m -Xms9m -Xmn3m -XX:PermSize=40m -XX:MaxPermSize=40m -XX:+UseParallelOldGC
+-Xmx18m -Xms6m -Xmn2m -XX:PermSize=20m -XX:MaxPermSize=30m -XX:+UseConcMarkSweepGC -XX:ParallelCMSThreads=2
+-Xmx16m -Xms4m -Xmn1m -XX:PermSize=12m -XX:MaxPermSize=18m -XX:+UseG1GC
+-Xmx16m -Xms4m -Xmn3m -XX:PermSize=24m -XX:MaxPermSize=32m -XX:+UseParallelGC -XX:ParallelGCThreads=2
