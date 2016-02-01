@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
 
-public class MTRunner {
+public class Task6Runner {
 
 	private static int ITERATIONS = 10;
 	
