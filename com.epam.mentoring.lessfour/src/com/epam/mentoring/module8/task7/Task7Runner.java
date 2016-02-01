@@ -70,6 +70,7 @@ public class Task7Runner {
 
 			while (resource.get() > 10) {
 				try {
+					notifyAll();
 					System.out.println("waiting at Producer " + resource.get());
 					wait();
 				} catch (InterruptedException e) {
@@ -78,7 +79,6 @@ public class Task7Runner {
 			int counter = resource.increment();
 			System.out.println(Thread.currentThread().getName() + " Producer "
 					+ counter);
-			notifyAll();
 		}
 	}
 
@@ -106,6 +106,7 @@ public class Task7Runner {
 
 			while (resource.get() < 5) {
 				try {
+					notifyAll();
 					System.out.println("waiting at Consumer " + resource.get());
 					wait();
 				} catch (InterruptedException e) {
@@ -114,7 +115,7 @@ public class Task7Runner {
 			int counter = resource.decrement();
 			System.out.println(Thread.currentThread().getName() + " Consumer "
 					+ counter);
-			notifyAll();
+			
 		}
 	}
 
