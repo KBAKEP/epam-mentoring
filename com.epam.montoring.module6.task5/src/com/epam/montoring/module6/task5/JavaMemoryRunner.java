@@ -6,12 +6,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JavaMemoryRunner {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        reproduceStackOverflow();
+//        List<Object> list = new ArrayList<Object>();
+        while(true) {
+            int[] a = new int[10000000];
+        }
         
        
     }

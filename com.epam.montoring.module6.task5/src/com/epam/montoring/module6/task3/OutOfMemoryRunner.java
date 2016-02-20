@@ -11,15 +11,15 @@ public class OutOfMemoryRunner {
 
        
         
-        outOfHeapSpace();
+//        outOfHeapSpace();
         
-//        try {
-//            outOfPermGen();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.out.println(e.getStackTrace());
-//            System.out.println(e.getMessage());
-//        }
+        try {
+            outOfPermGen();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getStackTrace());
+            System.out.println(e.getMessage());
+        }
 
     }
 
