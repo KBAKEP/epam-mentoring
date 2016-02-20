@@ -1,7 +1,0 @@
-/*
-*/
-
-include 'module11.task2.dao',
-        'module11.task2.service',
-        'module11.task2.web'
-

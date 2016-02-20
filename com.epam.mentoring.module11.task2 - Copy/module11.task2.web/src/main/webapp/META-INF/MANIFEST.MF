@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: module11.task1.service-1.0-SNAPSHOT.jar module11.task1.dao
- -1.0-SNAPSHOT.jar
-
