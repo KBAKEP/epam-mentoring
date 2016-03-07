@@ -10,7 +10,7 @@ dependencies {
 }
 
 version = '1.0'
-war.baseName = 'module11'
+war.baseName = 'module12'
 
 tomcatRun.contextPath = '/' + war.baseName
 tomcatRunWar.contextPath = '/' + war.baseName
@@ -41,6 +41,6 @@ dependencies {
            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
 }
 
-//tomcat {
-//    httpPort = 8082
-//}
+tomcat {
+    httpPort = 8082
+}

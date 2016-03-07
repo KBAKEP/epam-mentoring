@@ -18,6 +18,10 @@ under the License.
 -->
 <html>
 <body>
-<h2>Hello World!</h2>
+<h2>Hello maven World! eeee</h2>
+
+<img alt="oops" src="/jmp_task/IMG_20141017_122004.jpg" style="width: 400px; height: auto">
+<img alt="oops" src="/jmp_task/aliaksei_volkau.jpg" style="width: 400px; height: auto">
+
 </body>
 </html>
